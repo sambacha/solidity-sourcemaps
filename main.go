@@ -1,4 +1,4 @@
-package solmap
+package sourcemaps
 
 import (
 	"encoding/hex"
@@ -11,9 +11,9 @@ import (
 
 //
 // SourceMap is the memory address to instruction information map.
-// 
 //
-// Use a more memory efficient method of representing source maps. 
+//
+// Use a more memory efficient method of representing source maps.
 // $$ of InstructionMapping refs?
 
 type InstructionMapping struct {
@@ -26,7 +26,6 @@ type InstructionMapping struct {
 	FileIndex int
 	Jump      string
 }
-
 
 type SourceMap map[int]*InstructionMapping
 
@@ -57,7 +56,7 @@ func ParseSourceMap(sourceMap string, source string, bytecode string) (*SourceMa
 				return nil, fmt.Errorf("failed parsing integer: %s", err)
 			}
 		}
-		// 
+		//
 		if len(info) > 2 && info[2] != "" {
 			f, err = strconv.ParseInt(info[2], 0, 64)
 			if err != nil {
